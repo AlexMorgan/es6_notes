@@ -11,6 +11,9 @@ Side Note: Methods are essentially functions associated with an object, but with
     1. A method is implicitly passed the object on which it was called.
     2. A method is able to operate on data that is contained within the class.
 
+
+Ex: Class Expression:
+
 ```javascript
 class Product {
     constructor (name, price) {
@@ -22,4 +25,7 @@ class Product {
         console.log(`Name: ${this._name} | Price: ${this._price}`); // Here we are making use of Template String notation (introduced in ES6 - allows us to use string substitution)
     }
 }
+
+let fruit = new Product("apple", 3);
 ```
+
