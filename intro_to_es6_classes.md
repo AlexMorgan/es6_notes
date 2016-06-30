@@ -82,9 +82,10 @@ class Toy extends Product {
 let transformer = new Toy ("Optimus Prime", 30, true);
 
 transformer.isInStock(); // Optimus Prime is in stock
+transformer.productDetails(); // Name: Optimus Prime | Price: $30
 ```
 
-Since the name price and product details are both shared between a toy and a Product, we can simply extend our Toy class from the Product base class by using the 'extends' keyword. Also, note the use of the 'super' keyword. 'super' is used to call methods on an object's parents and it passes similar properties as arguments. When used in a constructor, the 'super' keyword must be defined before the 'this' keyword defines any subclass specific properties.
+Since the name and price properties and product details method are shared between a toy and a Product, we can simply extend our Toy class from the Product base class by using the 'extends' keyword. Also, note the use of the 'super' keyword. 'super' is used to call methods on an object's parents and it passes similar properties as arguments. When used in a constructor, the 'super' keyword must be defined before the 'this' keyword defines any subclass specific properties.
 
 #Beware
 
