@@ -71,9 +71,17 @@ class Toy extends Product {
     }
 
     isInStock() {
-        console.log(this._instock);
+        if (this._instock) {
+            console.log(`${this._name} is in stock`);
+        } else {
+            console.log(`${this._name} is NOT in stock`);
+        }
     }
 }
+
+let transformer = new Toy ("Optimus Prime", 30, true);
+
+transformer.isInStock(); // Optimus Prime is in stock
 ```
 
 Since the name price and product details are both shared between a toy and a Product, we can simply extend our Toy class from the Product base class by using the 'extends' keyword. Also, note the use of the 'super' keyword. 'super' is used to call methods on an object's parents and it passes similar properties as arguments. When used in a constructor, the 'super' keyword must be defined before the 'this' keyword defines any subclass specific properties.
