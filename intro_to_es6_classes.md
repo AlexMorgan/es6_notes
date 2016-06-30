@@ -13,7 +13,6 @@ Side Note: Methods are essentially functions associated with an object, but with
 
 
 ```javascript
-// Class Expression
 class Product {
     constructor (name, price) {
         this._name = name;
@@ -25,7 +24,51 @@ class Product {
     }
 }
 
-// Class Declaration
-let fruit = new Product("apple", 3);
+class Toy {
+    constructor(name, price, instock) {
+        this._name = name;
+        this._price = price;
+        this._instock = instock
+    }
+
+    productDetails() {
+        console.log(`Name: ${this._name} | Price: ${this._price}`); // Here we are making use of Template String notation (introduced in ES6 - allows us to use string substitution)
+    }
+
+    isinstock() {
+        console.log(this._instock);
+    }
+}
+
+let transformer = new Toy("Optimus Prime", 30);
+
+transformer.productDetails(); // "Name: Optimus Prime | Price: $30"
 ```
 
+#Inheritance & Subclasses
+
+Often times you can break classes down into subclasses which are essentially detailed abstractions of a superclass/base class. If we think about our product and toy classes above we can assume that a toy is an abstraction of a product. They both share the same properties and a toy IS-A and WORKS LIKE A specific kind of product.
+
+```javascript
+class Product {
+    constructor (name, price) {
+        this._name = name;
+        this._price = price;
+    }
+
+    productDetails() {
+        console.log(`Name: ${this._name} | Price: ${this._price}`);
+    }
+}
+
+class Toy extends Product {
+    constructor(name, price, instock) {
+        super(name, price);
+        this._instock = instock;
+    }
+
+    isInStock() {
+        console.log(this._instock);
+    }
+}
+```
