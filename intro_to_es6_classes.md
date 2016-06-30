@@ -11,6 +11,7 @@ Side Note: Methods are essentially functions associated with an object, but with
     1. A method is implicitly passed the object on which it was called.
     2. A method is able to operate on data that is contained within the class.
 
+Example - Class Declaration:
 
 ```javascript
 class Product {
@@ -49,6 +50,8 @@ transformer.productDetails(); // "Name: Optimus Prime | Price: $30"
 
 Often times you can break classes down into subclasses which are essentially detailed abstractions of a superclass/base class. If we think about our product and toy classes above we can assume that a toy is an abstraction of a product. They both share the same properties and a toy IS-A and WORKS LIKE A specific kind of product.
 
+Example - Inheritance:
+
 ```javascript
 class Product {
     constructor (name, price) {
@@ -72,3 +75,11 @@ class Toy extends Product {
     }
 }
 ```
+
+Since the name price and product details are both shared between a toy and a Product, we can simply extend our Toy class from the Product base class by using the 'extends' keyword. Also, note the use of the 'super' keyword. 'super' is used to call methods on an object's parents and it passes similar properties as arguments. When used in a constructor, the 'super' keyword must be defined before the 'this' keyword defines any subclass specific properties.
+
+#Beware
+
+There are however disadvantages of extending your classes/inheritance. We ensure valid state by manipulating data through a small and fixed set of functions.
+However, when we inherit we're also increasing the list of functions that can manipulate our data. Too much inheritance is almost equivalent to global
+variabes... having too many functions that can directly manipulate our data.
