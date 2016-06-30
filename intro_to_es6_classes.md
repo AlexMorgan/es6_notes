@@ -12,9 +12,8 @@ Side Note: Methods are essentially functions associated with an object, but with
     2. A method is able to operate on data that is contained within the class.
 
 
-Ex: Class Expression:
-
 ```javascript
+// Class Expression
 class Product {
     constructor (name, price) {
         this._name = name;
@@ -26,6 +25,7 @@ class Product {
     }
 }
 
+// Class Declaration
 let fruit = new Product("apple", 3);
 ```
 
