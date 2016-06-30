@@ -1,6 +1,6 @@
 # Introduction to ES6 Classes
 
-ES6 Classes are essentially just syntactical sugar for objects and prototypes. However, they offer a much cleaner syntax for dealing with javascript objects and they simplify prototypical inheritance.
+ES6 Classes are essentially just syntactical sugar for objects and prototypes. However, they offer a much cleaner syntax for dealing with javascript objects and they simplify prototypical inheritance. The purpose of classes is to keep data private by encapsulating functions as methods and variables as properties of a class instance.
 
 #Syntax
 
@@ -89,6 +89,17 @@ Since the name and price properties and product details method are shared betwee
 
 #Beware
 
+Overuse:
 There are however disadvantages of extending your classes/inheritance. We ensure valid state by manipulating data through a small and fixed set of functions.
 However, when we inherit we're also increasing the list of functions that can manipulate our data. Too much inheritance is almost equivalent to global
 variabes... having too many functions that can directly manipulate our data.
+
+
+Hoisting:
+An important difference between function declarations and class declarations is that function declarations are hoisted and class declarations are not. You first need to declare your class and then access it, otherwise code like the following will throw a ReferenceError:
+
+```javascript
+var p = new Polygon(); // ReferenceError
+
+class Polygon {}
+```
