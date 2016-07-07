@@ -46,6 +46,38 @@ let transformer = new Toy("Optimus Prime", 30);
 transformer.productDetails(); // "Name: Optimus Prime | Price: $30"
 ```
 
+## ES6 Classes & Prototypes
+
+`let transformer = new Toy("Optimus Prime", 30);` creates a Javascript object that automatically gets a prototype assigned to it.
+
+We can explore the available attributes assigned in the `constructor`:
+
+```javascript
+transformer.hasOwnProperty('_name') // true
+transformer.hasOwnProperty('_price') //true
+```
+
+`name` and `price` are properties that are directly assigned on the new `transformer` object. If we wanted to access any of these properties we would call them like any regular JS object:
+
+```javascript
+transformer._name // Optimus Prime
+```
+But what happens when we check for the prodcutDetails method:
+
+```javascript
+transformer.hasOwnProperty('produtDetails') // false
+```
+
+It's not in the object, however we can call it with the following line:
+
+`transformer.productDetails(); // Name: Optimus Prime | Price: 30`
+
+The productDetails is actually being shared by all instances of a toy and therefore is somewhere within the prototype chain of transformer.
+
+`transformer.__proto__.hasOwnProperty('productDetails') // true`
+
+The method isn't actually copied everytime we create a new Toy object, it is in the prototype. The object is created automatically by JS when declaring a class and its assigned to all instances of the class.
+
 #Inheritance & Subclasses
 
 Often times you can break classes down into subclasses which are essentially detailed abstractions of a superclass/base class. If we think about our product and toy classes above we can assume that a toy is an abstraction of a product. They both share the same properties and a toy IS-A and WORKS LIKE A specific kind of product.
