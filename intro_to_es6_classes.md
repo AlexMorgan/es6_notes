@@ -130,6 +130,27 @@ transformer.productDetails(); // Name: Optimus Prime | Price: $30
 
 Since the name and price properties and product details method are shared between a toy and a Product, we can simply extend our Toy class from the Product base class by using the 'extends' keyword. Also, note the use of the 'super' keyword. 'super' is used to call methods on an object's parents and it passes similar properties as arguments. When used in a constructor, the 'super' keyword must be defined before the 'this' keyword defines any subclass specific properties.
 
+##Checking the relationship:
+
+```javascript
+
+let transformer = new Toy ("Optimus Prime", 30, true);
+let mixtape = new Product("Supa Hot Fire", 10000);
+
+mixtape.__proto__ == transformer.__proto__ // false
+
+mixtape.productDetails(); // Name: Supa Hot Fire | Price: 10000
+
+transformer.productDetails(); // Name: Optimus Prime | Price: 30
+
+// mixtape and transformer don't share a prototype... but you can still call productDetails on both :jackie:
+
+mixtape.__proto__ == transformer.__proto__.__proto__ // true
+
+```
+
+What's happening is the keyword `extends` in instructing Javascript to create a prototype chain for us.
+
 #Beware
 
 Overuse:
