@@ -1,6 +1,6 @@
 # Introduction to ES6 Classes
 
-ES6 Classes are essentially just syntactical sugar for objects and prototypes. However, they offer a much cleaner syntax for dealing with javascript objects and they simplify prototypical inheritance. The purpose of classes is to keep data private by encapsulating functions as methods and variables as properties of a class instance.
+ES6 Classes are essentially syntactical sugar for objects and prototypes. However, they offer a much cleaner syntax for dealing with javascript objects and they simplify prototypical inheritance. The purpose of classes is to keep data private by encapsulating functions as methods and variables as properties of a class instance.
 
 #Syntax
 
@@ -41,7 +41,7 @@ class Toy {
     }
 }
 
-let transformer = new Toy("Optimus Prime", 30);
+let transformer = new Toy("Optimus Prime", 30, true);
 
 transformer.productDetails(); // "Name: Optimus Prime | Price: $30"
 ```
@@ -72,11 +72,22 @@ It's not in the object, however we can call it with the following line:
 
 `transformer.productDetails(); // Name: Optimus Prime | Price: 30`
 
-The productDetails is actually being shared by all instances of a toy and therefore is somewhere within the prototype chain of transformer.
+The productDetails is actually being shared by all instances of a Toy and is therefore within the prototype chain of transformer.
 
 `transformer.__proto__.hasOwnProperty('productDetails') // true`
 
 The method isn't actually copied everytime we create a new Toy object, it is in the prototype. The object is created automatically by JS when declaring a class and its assigned to all instances of the class.
+
+We can create another instance of a Toy and compare the prototypes of each and we find that they are the same object.
+
+```javascript
+let transformer = new Toy("Optimus Prime", 30, true);
+let mixtape = new Toy("Supa Hot Fire", 2000, false);
+
+transformer.__proto__ == mixtape.__proto__ // true
+
+```
+Thus the methods productDetails and isInStock are being shared by all instances of Toy. Adding methods on the prototypes of objects as opposed to copying the methods on each object allows us to conserve memory.
 
 #Inheritance & Subclasses
 
